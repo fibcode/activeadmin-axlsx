@@ -26,7 +26,7 @@ scopes = <<-SCOPES
   end
 SCOPES
 
-inject_into_file 'app/admin/posts.rb',
+inject_into_file 'app/admin/post.rb',
                  scopes,
                  after: "ActiveAdmin.register Post do\n"
 
