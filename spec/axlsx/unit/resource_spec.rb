@@ -1,4 +1,4 @@
-require 'spec_helper' 
+require 'spec_helper'
 include ActiveAdmin
 
 module ActiveAdmin
@@ -7,18 +7,18 @@ module ActiveAdmin
       let(:resource) { ActiveAdmin.register(Post) }
 
       let(:custom_builder) do
-        Builder.new(Post) do |builder|
+        Builder.new(Post) do
           column(:fake) { :fake }
         end
       end
 
       context 'when registered' do
-        it "each resource has an xlsx_builer" do
-          resource.xlsx_builder.should be_a(Builder)
+        it 'each resource has an xlsx_builder' do
+          expect(resource.xlsx_builder).to be_a(Builder)
         end
 
-        it "We can specify our own configured builder" do
-          lambda { resource.xlsx_builder = custom_builder }.should_not raise_error
+        it 'We can specify our own configured builder' do
+          expect { resource.xlsx_builder = custom_builder }.not_to raise_error
         end
       end
     end

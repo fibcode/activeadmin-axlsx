@@ -1,12 +1,24 @@
 module ActiveAdmin
   module Axlsx
+    # extends activeadmin dsl to include xlsx
     module DSL
-      delegate(:ingnore_columns, :column, :after_filer, :i18n_scope, :header_style, :skip_header, :white_list,
+      delegate(:after_filter,
+               :before_filter,
+               :column,
+               :delete_columns,
+               :header_style,
+               :i18n_scope,
+               :skip_header,
+               :whitelist,
                to: :xlsx_builder,
                prefix: :config)
 
       def xlsx(options = {}, &block)
-        config.xlsx_builder = ActiveAdmin::Axlsx::Builder.new(config.resource_class, options, &block)
+        config.xlsx_builder = ActiveAdmin::Axlsx::Builder.new(
+          config.resource_class,
+          options,
+          &block
+        )
       end
     end
   end

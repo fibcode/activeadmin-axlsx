@@ -1,18 +1,24 @@
 module ActiveAdmin
   module Axlsx
+    # extends activeadmin with xlsx downloads
     class Engine < ::Rails::Engine
       engine_name 'active_admin_axlsx'
 
-      initializer 'active_admin.axlsx', :group => :all do |app|
+      initializer 'active_admin.axlsx', group: :all do
+        xl = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         if Mime::Type.lookup_by_extension(:xlsx).nil?
-          Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx
+          Mime::Type.register xl, :xlsx
         end
 
         ActiveAdmin::Views::PaginatedCollection.add_format :xlsx
 
         ActiveAdmin::ResourceDSL.send :include, ActiveAdmin::Axlsx::DSL
-        ActiveAdmin::Resource.send :include, ActiveAdmin::Axlsx::ResourceExtension
-        ActiveAdmin::ResourceController.send :include, ActiveAdmin::Axlsx::ResourceControllerExtension
+        ActiveAdmin::Resource.send :include,
+                                   ActiveAdmin::Axlsx::ResourceExtension
+        ActiveAdmin::ResourceController.send(
+          :include,
+          ActiveAdmin::Axlsx::ResourceControllerExtension
+        )
       end
     end
   end
