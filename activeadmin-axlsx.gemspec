@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.test_files  = `git ls-files -- {spec}/*`.split("\n")
 
   s.add_runtime_dependency 'activeadmin', '>= 0.6.6', '< 2'
-  s.add_runtime_dependency 'axlsx'
+  s.add_runtime_dependency 'axlsx', '~> 2.0'
 
   s.required_ruby_version = '>= 1.9.2'
   s.require_path = 'lib'
