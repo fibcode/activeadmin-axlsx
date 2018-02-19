@@ -9,12 +9,7 @@ module ActiveAdmin
 
       context 'the default builder' do
         it 'has no header style' do
-          expect(builder.header_style).to eq(
-            bg_color: '00',
-            fg_color: 'FF',
-            sz: 12,
-            alignment: { horizontal: :center }
-          )
+          expect(builder.header_style).to eq({})
         end
         it 'has no i18n scope' do
           expect(builder.i18n_scope).to be_nil
@@ -197,7 +192,7 @@ module ActiveAdmin
         it 'merges our customizations with the default header style' do
           expect(builder.header_style[:sz]).to eq(10)
           expect(builder.header_style[:fg_color]).to eq('FF0000')
-          expect(builder.header_style[:bg_color]).to eq('00')
+          expect(builder.header_style[:bg_color]).to be_nil
         end
 
         it 'uses the specified i18n_scope' do
