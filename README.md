@@ -1,14 +1,11 @@
-Active Admin Axlsx: Office Open XML Spreadsheet Export for Active Admin
-====================================
+# Active Admin Axlsx: Office Open XML Spreadsheet Export for Active Admin
 
 If you are using this for commercial purposes, or just want to show your
 appreciation for the gem, please don't hesitate to make a donation.
 
-[![Click here to lend your support to: axlsx and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/17814.png?skin_name=chrome)](http://www.pledgie.com/campaigns/17814)
+**IRC**: [irc.freenode.net / #axlsx](irc://irc.freenode.net/axlsx)
 
-**IRC**:[irc.freenode.net / #axlsx](irc://irc.freenode.net/axlsx)
-
-**Git**:[http://github.com/randym/activeadmin-axlsx](http://github.com/randym/activeadmin-axlsx)
+**Git**: [http://github.com/randym/activeadmin-axlsx](http://github.com/randym/activeadmin-axlsx)
 
 **Twitter**: [https://twitter.com/#!/morgan_randy](https://twitter.com/#!/morgan_randy)
 
@@ -16,7 +13,7 @@ appreciation for the gem, please don't hesitate to make a donation.
 
 **Author**:  Randy Morgan
 
-**Copyright**:    2012 ~ 2013
+**Copyright**: 2012 ~ 2013
 
 **License**: MIT License
 
@@ -30,33 +27,31 @@ appreciation for the gem, please don't hesitate to make a donation.
 
 **Release Date**: 2013.06.02
 
-Synopsis
---------
+## Synopsis
 
 This gem provides automatic OOXML (xlsx) downloads for Active Admin
 resources. It lets you harness the full power of Axlsx when you want to
 but for the most part just stays out of your way and adds a link next to
 the csv download for xlsx (Excel/numbers/Libre Office/Google Docs)
 
-![Screen 1](https://github.com/randym/activeadmin-axlsx/raw/master/screen_capture.png)
+![Screen 1](screen_capture.png)
 
 Usage example:
 Simply add the following to your Gemfile and you are good to go.
 All resource index views will now include a link for download directly
 to xlsx.
 
-```
+```ruby
 gem 'activeadmin-axlsx'
 ```
 
-Cool Toys
----------
+## Cool Toys
 
 Here are a few quick examples of things you can easily tweak.
 Axlsx supports A LOT of the specification so if you are looking to do
 something adventurous please ping me on irc. (freenode#axlsx)
 
-##localize column headers
+### localize column headers
 
 ```ruby
 #app/admin/posts.rb
@@ -65,7 +60,7 @@ ActiveAdmin.register Post do
 end
 ```
 
-##Use blocks for adding computed fields
+### Use blocks for adding computed fields
 
 ```ruby
 #app/admin/posts.rb
@@ -76,7 +71,7 @@ ActiveAdmin.register Post do
 end
 ```
 
-##Change the column header style
+### Change the column header style
 
 ```ruby
 #app/admin/posts.rb
@@ -86,7 +81,7 @@ ActiveAdmin.register Post do
 end
 ```
 
-##Remove columns
+### Remove columns
 
 ```ruby
 #app/admin/posts.rb
@@ -95,7 +90,7 @@ ActiveAdmin.register Post do
 end
 ```
 
-#Using the DSL
+## Using the DSL
 
 Everything that you do with the config'd default builder can be done via
 the resource DSL.
@@ -149,53 +144,59 @@ ActiveAdmin.register Post do
 end
 ```
 
-#Specs
-------
+## Specs
+
 Running specs for this gem requires that you construct a rails application.
 To execute the specs, navigate to the gem directory,
 run bundle install and run these to rake tasks:
 
-```
+```text
 bundle exec rake setup
 ```
 
-```
+```text
 bundle exec rake
 ```
-# Changelog
 
-**2013.10.12**
-  - Upgraded to most recent version of Axlsx. This introduces some non-backwards compatible
-    changes and pushes rubyzip up to 1.0.0
-  - Added support for scoped collections #18
-  - Added support to specify whitelist in in configuration. This will clear all columns and
-    you can then specify only the fields you want.
-  - Added support for skip_header in the builder/DSL.
-  - Moved initialization into after config block in an attempt to not crunch assets:precompile
+## Changelog
 
-**2013.06.02** Release 2.1.2
-  - builder#collection is now set on serialize and is available in before and after filters.
-  - Code cleanup
+### **2013.10.12**
 
-**2013.04.18** Release 2.1.1
-  - Fixed issue with repeating data in sheets across downloads
-  - Updated to use activeadmin 0.6.0+ which supports plugins.
+* Upgraded to most recent version of Axlsx. This introduces some non-backwards compatible
+  changes and pushes rubyzip up to 1.0.0
+* Added support for scoped collections #18
+* Added support to specify whitelist in in configuration. This will clear all columns and
+  you can then specify only the fields you want.
+* Added support for skip_header in the builder/DSL.
+* Moved initialization into after config block in an attempt to not crunch assets:precompile
 
-**2013.03.21** Release 2.0.1
-  - Fixed an issue with missing objects when using the DSL.
-    Huge thanks to [Fivell](https://github.com/Fivell)
+### **2013.06.02** Release 2.1.2
 
-**2012.11.29** Release 2.0.0
-  - resouce content column are now pre-populated.
-  - added before and after filters
-  - 100% spec coverage
+* builder#collection is now set on serialize and is available in before and after filters.
+* Code cleanup
 
-**2012.11.16**
-  - Fixed DSL referencing
-  - Added delete_columns to builder and DSL
+### **2013.04.18** Release 2.1.1
 
-#Copyright and License
-----------
+* Fixed issue with repeating data in sheets across downloads
+* Updated to use activeadmin 0.6.0+ which supports plugins.
+
+### **2013.03.21** Release 2.0.1
+
+* Fixed an issue with missing objects when using the DSL.
+  Huge thanks to [Fivell](https://github.com/Fivell)
+
+### **2012.11.29** Release 2.0.0
+
+* resouce content column are now pre-populated.
+* added before and after filters
+* 100% spec coverage
+
+### **2012.11.16**
+
+* Fixed DSL referencing
+* Added delete_columns to builder and DSL
+
+## Copyright and License
 
 activeadmin-axlsx &copy; 2012 ~ 2013 by [Randy Morgan](mailto:digial.ipseity@gmail.com).
 
