@@ -8,6 +8,7 @@ module ActiveAdmin
                :delete_columns,
                :header_style,
                :i18n_scope,
+               :only_columns,
                :skip_header,
                :whitelist,
                to: :xlsx_builder,

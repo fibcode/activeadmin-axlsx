@@ -25,6 +25,11 @@ module ActiveAdmin
           expect(builder.columns.size).to eq(content_columns.size - 1)
         end
 
+        it 'lets us use specific columns in a list' do
+          builder.only_columns :title, :author
+          expect(builder.columns.size).to eq(2)
+        end
+
         it 'lets us say we dont want the header' do
           builder.skip_header
           expect(builder.instance_values['skip_header']).to be_truthy
