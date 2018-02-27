@@ -1,5 +1,10 @@
 # Changelog
 
+## **2018.02.27**
+
+* Add only_columns
+* Update tests for ActiveAdmin 1.2
+
 ## **2018.02.19**
 
 * fix unnecessary database access
