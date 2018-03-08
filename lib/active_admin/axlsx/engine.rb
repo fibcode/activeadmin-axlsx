@@ -1,6 +1,6 @@
 module ActiveAdmin
   module Axlsx
-    # extends activeadmin with xlsx downloads
+    # Extends activeadmin with xlsx downloads
     class Engine < ::Rails::Engine
       engine_name 'active_admin_axlsx'
 
@@ -16,7 +16,7 @@ module ActiveAdmin
         ActiveAdmin::Resource.send :include,
                                    ActiveAdmin::Axlsx::ResourceExtension
         ActiveAdmin::ResourceController.send(
-          :include,
+          :prepend,
           ActiveAdmin::Axlsx::ResourceControllerExtension
         )
       end

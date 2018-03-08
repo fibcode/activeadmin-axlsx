@@ -4,7 +4,7 @@ module ActiveAdmin
   # tests for dsl
   module Axlsx
     describe ::ActiveAdmin::ResourceDSL do
-      context 'in a registraiton block' do
+      context 'in a registration block' do
         let(:builder) do
           config = ActiveAdmin.register(Post) do
             xlsx(i18n_scope: [:rspec], header_style: { sz: 20 }) do

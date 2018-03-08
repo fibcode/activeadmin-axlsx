@@ -1,8 +1,13 @@
 # Active Admin Axlsx
 
-Office Open XML Spreadsheet Export for [Active Admin](https://www.activeadmin.info/)
+Office Open XML Spreadsheet Export for [Active Admin]
 
 The original gem is located here: [https://github.com/randym/activeadmin-axlsx](https://github.com/randym/activeadmin-axlsx)
+
+[![Travis CI][travis_badge]][travis]
+[![Quality][codeclimate_badge]][codeclimate]
+[![Coverage][codecov_badge]][codecov]
+[![Inch CI][inch_badge]][inch]
 
 ## Synopsis
 
@@ -13,13 +18,20 @@ the csv download for xlsx (Excel/numbers/Libre Office/Google Docs)
 
 ![Screen 1](screen_capture.png)
 
-Usage example:
+## Usage
+
 Simply add the following to your Gemfile and you are good to go.
 All resource index views will now include a link for download directly
 to xlsx.
 
 ```ruby
-gem 'activeadmin-axlsx'
+gem 'activeadmin-axlsx', git: 'https://github.com/thambley/activeadmin-axlsx.git'
+```
+
+For Active Admin 1.0, you will also have to update config/initializers/active_admin.rb.  Update the download\_links setting to include xls:
+
+```ruby
+config.download_links = %i[csv xml json xlsx]
 ```
 
 ## Examples
@@ -127,20 +139,6 @@ Running specs for this gem requires that you construct a rails application.
 
 To execute the specs, navigate to the gem directory, run bundle install and run these to rake tasks:
 
-### Rails 3.2
-
-```text
-bundle install --gemfile=gemfiles/rails_32.gemfile
-```
-
-```text
-BUNDLE_GEMFILE=gemfiles/rails_32.gemfile bundle exec rake setup
-```
-
-```text
-BUNDLE_GEMFILE=gemfiles/rails_32.gemfile bundle exec rake
-```
-
 ### Rails 4.2
 
 ```text
@@ -155,8 +153,34 @@ BUNDLE_GEMFILE=gemfiles/rails_42.gemfile bundle exec rake setup
 BUNDLE_GEMFILE=gemfiles/rails_42.gemfile bundle exec rake
 ```
 
+### Rails 5.1
+
+```text
+bundle install --gemfile=gemfiles/rails_51.gemfile
+```
+
+```text
+BUNDLE_GEMFILE=gemfiles/rails_51.gemfile bundle exec rake setup
+```
+
+```text
+BUNDLE_GEMFILE=gemfiles/rails_51.gemfile bundle exec rake
+```
+
 ## Copyright and License
 
 activeadmin-axlsx &copy; 2012 ~ 2013 by [Randy Morgan](mailto:digial.ipseity@gmail.com).
 
 activeadmin-axlsx is licensed under the MIT license. Please see the LICENSE document for more information.
+
+[Active Admin]:https://www.activeadmin.info/
+[activeadmin-axlsx]:https://github.com/randym/activeadmin-axlsx
+
+[travis_badge]: https://img.shields.io/travis/thambley/activeadmin-axlsx/master.svg
+[travis]: https://travis-ci.org/thambley/activeadmin-axlsx
+[codeclimate_badge]: https://api.codeclimate.com/v1/badges/ea1b67b0133a34817f66/maintainability
+[codeclimate]: https://codeclimate.com/github/thambley/activeadmin-axlsx/maintainability
+[codecov_badge]: https://codecov.io/gh/thambley/activeadmin-axlsx/branch/master/graph/badge.svg
+[codecov]: https://codecov.io/gh/thambley/activeadmin-axlsx
+[inch_badge]: http://inch-ci.org/github/thambley/activeadmin-axlsx.svg?branch=master
+[inch]: http://inch-ci.org/github/thambley/activeadmin-axlsx

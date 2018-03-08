@@ -6,17 +6,17 @@ module ActiveAdmin
     class Builder
       include MethodOrProcHelper
 
-      # @param resource_class The resource this builder generate column
+      # @param [Class] resource_class The resource this builder generate column
       #   information for.
       # @param [Hash] options the options for this builder
-      # @option [Hash] :header_style - a hash of style properties to apply
-      #   to the header row. Any properties specified will be merged with the
-      #   default header styles. @see Axlsx::Styles#add_style
-      # @option [Array] :i18n_scope - the I18n scope to use when looking
+      # @option options [Hash] :header_style A hash of style properties to
+      #   apply to the header row. Any properties specified will be merged with
+      #   the default header styles.
+      # @option options [Array] :i18n_scope - the I18n scope to use when looking
       #   up localized column headers.
-      # @param [Block] Any block given will evaluated against this instance of
-      #    Builder. That means you can call any method on the builder from within
-      #    that block.
+      # @param [Block] block Block given will evaluated against this instance of
+      #   Builder. That means you can call any method on the builder from within
+      #   that block.
       # @example
       #   ActiveAdmin::Axlsx:Builder.new(Post, i18n: [:axlsx]) do
       #     delete_columns :id, :created_at, :updated_at
@@ -39,7 +39,9 @@ module ActiveAdmin
       #       end
       #     }
       #   end
-      #   @see ActiveAdmin::Axlsx::DSL
+      #
+      # @see ActiveAdmin::Axlsx::DSL
+      # @see Axlsx::Styles#add_style
       def initialize(resource_class, options = {}, &block)
         @skip_header = false
         @resource_class = resource_class
@@ -70,17 +72,13 @@ module ActiveAdmin
         @skip_header = true
       end
 
-      # The scope to use when looking up column names to generate the
-      # report header
-      attr_reader :i18n_scope
-
       # This is the I18n scope that will be used when looking up your
       # colum names in the current I18n locale.
       # If you set it to [:active_admin, :resources, :posts] the
       # serializer will render the value at active_admin.resources.posts.title
       # in the current translations
       # @note If you do not set this, the column name will be titleized.
-      attr_writer :i18n_scope
+      attr_accessor :i18n_scope
 
       # The stored block that will be executed after your report is generated.
       def after_filter(&block)

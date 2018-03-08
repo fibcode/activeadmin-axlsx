@@ -4,6 +4,14 @@ SimpleCov.start do
   add_filter '/spec/'
 end
 
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatters = [
+    SimpleCov::Formatter::HTMLFormatter,
+    SimpleCov::Formatter::Codecov
+  ]
+end
+
 ENV['RAILS_ENV'] = 'test'
 
 # prepare ENV for rails
@@ -25,6 +33,7 @@ require 'active_admin'
 require 'devise'
 require 'activeadmin-axlsx'
 ActiveAdmin.application.load_paths = [ENV['RAILS_ROOT'] + '/app/admin']
+
 # start up rails
 require ENV['RAILS_ROOT'] + '/config/environment'
 

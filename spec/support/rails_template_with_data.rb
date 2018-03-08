@@ -39,7 +39,7 @@ end
 # Setup some default data
 append_file 'db/seeds.rb', <<-SEEDS
 
-    users = ['Jimi Hendrix', 'Jimmy Page', 'Yngwie Malmsteen', 'Eric Clapton', 'Kirk Hammett'].collect do |name|
+  users = ['Jimi Hendrix', 'Jimmy Page', 'Yngwie Malmsteen', 'Eric Clapton', 'Kirk Hammett'].collect do |name|
     first, last = name.split(" ")
     User.create! first_name: first,
                  last_name: last,
